@@ -1,0 +1,16 @@
+In order to run this filr please install node modules using these commands in your cmd inside project directory:-
+
+1.to get react initial modules - npx create-react-app <app-name(here create a default react-app and after creation you can add all the files present in the repository in your app>
+2.to get redux  - npm add redux redux-logger react-redux
+3.to get react router - npm add react-router-dom
+4.to get local/session storge persistor - npm add redux-persist
+5.to get scss - npm add node-sass
+	but if sass won't worok then apply
+	5.1.npm uninstall node-sass
+	5.2.npm i node-sass@4.14
+
+6to get reselect - npm add reselect
+
+7.Finally to start react - npm start
+
+Note : all the steps are necessary to make this app run
