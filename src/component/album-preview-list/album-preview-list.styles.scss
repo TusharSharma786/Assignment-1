@@ -1,0 +1,14 @@
+.collection-list-item {
+    width: 17vw;
+    display: flex;
+    flex-direction: column;
+    height: 5vw;
+    align-items: center;
+    position: relative;
+
+    .link {
+      text-decoration:none;
+      color:black
+    }
+  }
+  

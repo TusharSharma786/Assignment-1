@@ -1,0 +1,10 @@
+.album {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    & .AlbumPreview {
+      margin-bottom: 30px;
+    }
+  }

@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import {Route,Switch,Link,Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+import Homepage from './page/homepage/homepage.component';
+import SignInAndSignOut from './page/sign-in-and-sign-out/sign-in-and-sign-out.component';
+import Header from './component/header/header.component';
+import AlbumItemInfo from './component/album-item-info/album-item-info.component';
+import Listpage from './page/listpage/listpage.component';
+
+const App = ({signedIn}) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+        <Switch>
+          <Route exact path='/' render={()=>!signedIn ? (<Redirect to='/signin'/>):(<Homepage/>)}/>
+          <Route exact path='/list' render={()=>!signedIn ? (<Redirect to='/signin'/>):(<Listpage/>)}/>
+          <Route exact path='/signin' render={()=>signedIn ? (<Redirect to='/'/>):(<SignInAndSignOut/>)}/>
+          {
+            signedIn ? (
+              <Route exact path='/detail/:id' component= {AlbumItemInfo}/>
+            ) : (
+              <Redirect to='/signin'></Redirect>
+            )
+          }
+          
+        </Switch>
+        {/* <Homepage/> */}
+
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  signedIn : state.signin.signIn
+});
+
+export default connect(mapStateToProps)(App);

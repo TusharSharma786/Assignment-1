@@ -1,0 +1,21 @@
+.header {
+    height: 5vw;
+
+    .content {
+        position: relative;
+        top: 50%;
+        margin-left: 83%;
+        margin-right: 1%;
+        display: flex;
+        justify-content: space-between;
+
+    .signout{
+        cursor: pointer;
+    }
+
+    .link{
+        text-decoration: none;
+        color: black;
+        }
+    }
+}
